@@ -7,16 +7,63 @@ const ProfileContainer = styled.div`
   margin-top: -6rem;
   background: ${({theme}) => theme.colors["base-profile"]};
   border-radius: 10px;
-  img{
-    width: 148px;
-    border-radius: 8px;
-  }
+
+  gap: 2rem;
+  
+`;
+
+const ProfilePicture = styled.img`
+  width: 148px;
+  border-radius: 8px;
 `;
 
 const ProfileContent = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  
+`;
+
+const ProfileContentHeader = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  > div{
+    display: flex;
+    justify-content: space-between;
+  }
+`;
+
+const ProfileInformation = styled.div`
+  display: flex;
+  gap: 1.5rem;
+
+  ul{
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+
+    li{
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+
+      svg{
+        width: 18px;
+        height: 18px;
+        color: ${({theme}) => theme.colors["base-label"]};
+      }
+    }
+  }
 `;
 
 
-export { ProfileContainer, ProfileContent };
+
+
+export { 
+  ProfileContainer, 
+  ProfilePicture,
+  ProfileContent, 
+  ProfileContentHeader,
+  ProfileInformation
+};
