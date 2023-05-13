@@ -13,6 +13,14 @@ const defaultTheme = {
     "base-profile": "#0B1B2B",
     "base-background": "#071422",
     "base-input": "#040F1A"
+  },
+  textSizes: {
+    "title-l": 24,
+    "title=m": 20,
+    "title-s": 18,
+
+    "text-m": 16,
+    "text-s": 14
   }
 } as const;
 
