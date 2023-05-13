@@ -15,12 +15,12 @@ const defaultTheme = {
     "base-input": "#040F1A"
   },
   textSizes: {
-    "title-l": 24,
-    "title=m": 20,
-    "title-s": 18,
+    "title-l": "1.5rem",
+    "title-m": "1.25rem",
+    "title-s": "1.125rem",
 
-    "text-m": 16,
-    "text-s": 14
+    "text-m": "1rem",
+    "text-s": "0.875rem"
   }
 } as const;
 
