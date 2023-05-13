@@ -20,12 +20,12 @@ const LinkWithIconContainer = styled.a<LinkWithIconProps>`
 
   height: 19px;
 
-
   border-bottom: 1px solid transparent;
 
   align-items: center;
   justify-content: center;
 
+  transition: 0.4s;
 
   &:hover{
     border-color: ${({theme}) => theme.colors.blue};
