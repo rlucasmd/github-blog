@@ -6,5 +6,11 @@ const HomeContainer = styled.div`
   align-items: center;
 `;
 
+const PostsContainer = styled.section`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+`;
 
-export { HomeContainer };
+
+export { HomeContainer, PostsContainer };
