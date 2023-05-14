@@ -1,7 +1,7 @@
 import styled from "styled-components";
-type RegualrTextProps = {
+type RegularTextProps = {
   size?: "s" | "m";
-  color?: "text" | "label" | "subtitle";
+  color?: "text" | "label" | "subtitle" | "span";
 }
 
 type TitleTextProps = {
@@ -18,7 +18,7 @@ const TitleText = styled.h1<TitleTextProps>`
   line-height: ${({size}) => size === "l" ? 1.3 : 1.6};
 `;
 
-const RegularText = styled.p<RegualrTextProps>`
+const RegularText = styled.p<RegularTextProps>`
   font-family: "Nunito", sans-serif;
   font-weight: 400;
   font-size: ${({theme, size}) => theme.textSizes[`text-${size ?? "m"}`]};

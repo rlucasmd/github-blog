@@ -12,8 +12,7 @@ const HeaderContainer = styled.header`
   background-size: cover;
 
   img{
-    height: 9.25rem;
-    width: 6.125rem;
+    width: 9.25rem;
     margin-bottom: 5rem;
   }
 `;
