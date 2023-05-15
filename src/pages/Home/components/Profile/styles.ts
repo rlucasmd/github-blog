@@ -3,6 +3,7 @@ import styled from "styled-components";
 const ProfileContainer = styled.div`
   display: flex;
   padding: 2rem 2.5rem;
+  box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
 
   margin-top: -6rem;
   background: ${({theme}) => theme.colors["base-profile"]};
