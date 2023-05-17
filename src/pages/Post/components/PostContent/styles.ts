@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 const PostContentContainer = styled.div`
+  p, h1, h2, h3{
+    font-family: "Nunito", sans-serif;
+  }
+
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -14,6 +18,8 @@ const PostContentContainer = styled.div`
 
   h1, h2, h3{
     color: ${({theme}) => theme.colors["blue"]};
+    text-decoration: underline 1px ${({theme}) => theme.colors.blue};
+    font-weight: 400;
   }
 
   ul{
@@ -31,7 +37,7 @@ const PostContentContainer = styled.div`
       margin: 0 !important;
 
       code{
-        font-family: "firaCode", monospace !important;
+        font-family: "FiraCode", monospace !important;
         line-height: 100% !important;
       }
     }

@@ -1,6 +1,13 @@
 import { createGlobalStyle } from "styled-components";
+import FiraCode from "../assets/fonts/FiraCode-Regular.ttf";
 
 const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: "FiraCode";
+    src: url(${FiraCode}) format("ttf");
+    font-weight: 400;
+    font-style: normal;
+  }
   *{
     padding: 0;
     margin: 0;
@@ -17,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
 
-  label, span, textarea, button {
+  body, input, textarea, button {
     font-size: 1rem;
     font-family: "Nunito", sans-serif;
     font-weight: 400;
