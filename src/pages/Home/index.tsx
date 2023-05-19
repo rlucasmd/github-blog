@@ -8,7 +8,7 @@ import { api } from "../../lib/axios";
 const username = import.meta.env.VITE_USERNAME;
 const repoName = import.meta.env.VITE_REPO_NAME;
 
-interface IPost {
+export interface IPost {
   body: string;
   comments: number;
   created_at: string;
@@ -16,6 +16,10 @@ interface IPost {
   title: string;
   id: number;
   published_at: string;
+  user: {
+    login: string;
+  };
+  number: number;
 }
 
 interface IResponse {
@@ -45,7 +49,7 @@ function Home() {
     const response = await api.get<IResponse>(`search/issues?q=${query}%20repo:${username}/${repoName}`);
 
     // console.log(data);
-    console.log(response);
+    console.log(response.data.items);
     setPosts(response.data.items);
   }, []);
   useEffect(() => {
@@ -63,7 +67,7 @@ function Home() {
             title={post.title}
             body={post.body}
             published_at={post.published_at}
-            html_url={post.html_url}
+            number={post.number}
           />
         ))}
       </PostsContainer>

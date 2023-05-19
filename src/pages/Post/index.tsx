@@ -1,6 +1,13 @@
+import { useParams } from "react-router-dom";
 import { PostContent } from "./components/PostContent";
 import { PostHeader } from "./components/PostHeader";
 import { PostPageContainer } from "./styles";
+import { useCallback, useEffect, useState } from "react";
+import { api } from "../../lib/axios";
+import { IPost } from "../Home";
+
+const username = import.meta.env.VITE_USERNAME;
+const repoName = import.meta.env.VITE_REPO_NAME;
 
 const post = {
   id: "126",
@@ -11,19 +18,32 @@ const post = {
   comments: 5,
 };
 
-function Post(){
+function Post() {
+  const { id } = useParams();
+  const [post, setPost] = useState<IPost>({} as IPost);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const getPostData = useCallback(async () => {
+    setIsLoading(true);
+    const response = await api.get(`repos/${username}/${repoName}/issues/${id}`);
+    setPost(response.data);
+    setIsLoading(false);
+    console.log(response);
+  }, []);
+  useEffect(() => {
+    getPostData();
+  }, []);
+  console.log(id);
   return (
     <PostPageContainer className="container">
-      <PostHeader 
-        title={post.title}
-        publishedAt={post.publishedAt}
-        author={post.author}
-        comments={post.comments}
+      <PostHeader
+        postData={post}
+        isLoading={isLoading}
       />
-      <PostContent 
-        content={post.content}
+      <PostContent
+        body={post.body}
       />
-    </PostPageContainer>  
+    </PostPageContainer>
   );
 }
 

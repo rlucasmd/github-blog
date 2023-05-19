@@ -4,51 +4,50 @@ import { RegularText, TitleText } from "../../../../components/Typography";
 import { PostHeaderContainer, PostHeaderDetails } from "./styles";
 import { faCalendar, faChevronLeft, faComment } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IPost } from "../../../Home";
+import { Spinner } from "../../../../components/Spinner";
 
 type PostHeaderProps = {
-  title: string;
-  publishedAt: string;
-  author: string;
-  comments: number;
+  postData: IPost;
+  isLoading: boolean;
 }
 
 
-function PostHeader({
-  title, 
-  publishedAt, 
-  author, 
-  comments
-} : PostHeaderProps){
-  return(
+
+
+function PostHeader({ postData, isLoading }: PostHeaderProps) {
+  if (isLoading)
+    return <Spinner />;
+  return (
     <PostHeaderContainer>
       <div>
-        <LinkWithIcon 
-          text="voltar" 
-          icon={<FontAwesomeIcon icon={faChevronLeft}/>} 
+        <LinkWithIcon
+          text="voltar"
+          icon={<FontAwesomeIcon icon={faChevronLeft} />}
           variant={"left-icon"}
-          href="/"  
+          href="/"
         />
-        <LinkWithIcon text="Ver no github"/>
+        <LinkWithIcon text="Ver no github" />
       </div>
 
-      <TitleText 
-        size="l" 
+      <TitleText
+        size="l"
       >
-        {title}
+        {postData.title}
       </TitleText>
 
       <PostHeaderDetails>
         <li>
-          <FontAwesomeIcon icon={faGithub}/>
-          <RegularText color="span">{author}</RegularText>
+          <FontAwesomeIcon icon={faGithub} />
+          <RegularText color="span">{postData.user.login}</RegularText>
         </li>
         <li>
-          <FontAwesomeIcon icon={faCalendar}/>
+          <FontAwesomeIcon icon={faCalendar} />
           <RegularText color="span">Há 1 dia</RegularText>
         </li>
         <li>
-          <FontAwesomeIcon icon={faComment}/>
-          <RegularText color="span">{comments}</RegularText>
+          <FontAwesomeIcon icon={faComment} />
+          <RegularText color="span">{postData.comments}</RegularText>
         </li>
       </PostHeaderDetails>
 

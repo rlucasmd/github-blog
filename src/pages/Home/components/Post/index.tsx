@@ -5,12 +5,12 @@ type PostProps = {
   title: string;
   body: string;
   published_at: string;
-  html_url: string;
+  number: number;
 }
 
-function Post({ title, body, published_at, html_url }: PostProps) {
+function Post({ title, body, published_at, number }: PostProps) {
   return (
-    <PostContainer to={html_url}>
+    <PostContainer to={`/post/${number}`}>
       <div>
         <TitleText as="h3" size="m">
           {title}
