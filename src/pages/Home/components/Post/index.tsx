@@ -3,23 +3,24 @@ import { PostContainer } from "./styles";
 
 type PostProps = {
   title: string;
-  content: string;
-  publishedAt: string;
+  body: string;
+  published_at: string;
+  html_url: string;
 }
 
-function Post({title, content, publishedAt} : PostProps){
+function Post({ title, body, published_at, html_url }: PostProps) {
   return (
-    <PostContainer to="/">
+    <PostContainer to={html_url}>
       <div>
         <TitleText as="h3" size="m">
           {title}
         </TitleText>
         <RegularText size="s" color="span">
-          {publishedAt}
+          {published_at}
         </RegularText>
       </div>
       <RegularText size="m" color="text">
-        {content}
+        {body}
       </RegularText>
     </PostContainer>
   );
