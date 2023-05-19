@@ -8,6 +8,8 @@ const ProfileContainer = styled.div`
   margin-top: -6rem;
   background: ${({theme}) => theme.colors["base-profile"]};
   border-radius: 10px;
+  width: 100%;
+  min-height: 13.25rem;
 
   gap: 2rem;
   

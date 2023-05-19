@@ -1,17 +1,17 @@
-import { ReactNode } from "react";
+import { AnchorHTMLAttributes, ReactNode } from "react";
 import { LinkWithIconContainer } from "./styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
-interface LinkWithIconProps {
+interface LinkWithIconProps extends AnchorHTMLAttributes<HTMLAnchorElement>{
   text: string;
-  iconLeft?: boolean;
+  variant?: "left-icon";
   icon?: ReactNode;
 }
 
-function LinkWithIcon({ text, icon, iconLeft } : LinkWithIconProps){
+function LinkWithIcon({ text, icon, variant, ...rest } : LinkWithIconProps){
   return (
-    <LinkWithIconContainer variant={!!iconLeft}>
+    <LinkWithIconContainer variant={variant} {...rest}>
       {text}
       {icon ?? <FontAwesomeIcon icon={faUpRightFromSquare}/>}
     </LinkWithIconContainer>

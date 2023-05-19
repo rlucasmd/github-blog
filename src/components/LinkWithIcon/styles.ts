@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 type LinkWithIconProps = {
-  variant: boolean;
+  variant: "left-icon" | undefined;
 }
 
 const LinkWithIconContainer = styled.a<LinkWithIconProps>`
@@ -36,7 +36,7 @@ const LinkWithIconContainer = styled.a<LinkWithIconProps>`
     width: 0.75rem;
   }
 
-  ${({variant}) => variant && css`
+  ${({variant}) => variant === "left-icon" && css`
     flex-direction: row-reverse;
   `}
 `;

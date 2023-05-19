@@ -25,7 +25,7 @@ function Home() {
     }
   ];
   const getPosts = useCallback(async (query = "") => {
-    const data = await api.get("/");
+    const data = await api.get("/users");
 
   }, []);
   useEffect(() => {

@@ -25,7 +25,8 @@ function PostHeader({
         <LinkWithIcon 
           text="voltar" 
           icon={<FontAwesomeIcon icon={faChevronLeft}/>} 
-          iconLeft={true}  
+          variant={"left-icon"}
+          href="/"  
         />
         <LinkWithIcon text="Ver no github"/>
       </div>
