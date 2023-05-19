@@ -5,8 +5,8 @@ import { SearchInput } from "./components/SearchInput";
 import { HomeContainer, PostsContainer } from "./styles";
 import { api } from "../../lib/axios";
 
-const username = import.meta.env.USERNAME;
-const repoName = import.meta.env.REPO_NAME;
+const username = import.meta.env.VITE_USERNAME;
+const repoName = import.meta.env.VITE_REPO_NAME;
 
 function Home() {
 
@@ -25,8 +25,10 @@ function Home() {
     }
   ];
   const getPosts = useCallback(async (query = "") => {
-    const data = await api.get("/users");
-
+    // const data = await api.get(`search/issues?q=${query}label:published%20repo:${username}/${repoName}`);
+    const data2 = await api.get(`search/issues?q=${query}%20repo:${username}/${repoName}`);
+    // console.log(data);
+    console.log(data2);
   }, []);
   useEffect(() => {
     getPosts();
