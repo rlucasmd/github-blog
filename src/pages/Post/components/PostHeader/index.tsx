@@ -6,6 +6,7 @@ import { faCalendar, faChevronLeft, faComment } from "@fortawesome/free-solid-sv
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IPost } from "../../../Home";
 import { Spinner } from "../../../../components/Spinner";
+import { useNavigate } from "react-router-dom";
 
 type PostHeaderProps = {
   postData: IPost;
@@ -16,6 +17,12 @@ type PostHeaderProps = {
 
 
 function PostHeader({ postData, isLoading }: PostHeaderProps) {
+
+  const navigate = useNavigate();
+
+  function goBack(){
+    navigate(-1);
+  }
   if (isLoading)
     return <Spinner />;
   return (
@@ -25,9 +32,12 @@ function PostHeader({ postData, isLoading }: PostHeaderProps) {
           text="voltar"
           icon={<FontAwesomeIcon icon={faChevronLeft} />}
           variant={"left-icon"}
-          href="/"
+          onClick={goBack}
         />
-        <LinkWithIcon text="Ver no github" />
+        <LinkWithIcon 
+          text="Ver no github"
+          href={postData.html_url} 
+        />
       </div>
 
       <TitleText

@@ -50,7 +50,7 @@ function Profile(){
         <Spinner />
       ) : (
         <>
-          <ProfilePicture src="https://github.com/ranieri3232.png" />
+          <ProfilePicture src={profileData.avatar_url} />
           <ProfileContent>
             <ProfileContentHeader>
               <div>

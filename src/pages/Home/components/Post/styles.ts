@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const PostContainer = styled(Link)`
+
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -15,12 +16,14 @@ const PostContainer = styled(Link)`
   gap: 1.25rem;
 
   max-height: 16.25rem;
+  max-width: 26rem;
 
   transition: 0.4s;
 
   &:hover{
     border-color: ${({theme}) => theme.colors["base-label"]};
   }
+  
 
   >div{
     display: flex;

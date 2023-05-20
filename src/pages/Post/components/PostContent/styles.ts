@@ -5,6 +5,10 @@ const PostContentContainer = styled.div`
     font-family: "Nunito", sans-serif;
   }
 
+  a{
+    color: ${({theme}) => theme.colors.blue};
+  }
+
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -17,7 +21,7 @@ const PostContentContainer = styled.div`
   }
 
   h1, h2, h3{
-    color: ${({theme}) => theme.colors["blue"]};
+    color: ${({theme}) => theme.colors.blue};
     text-decoration: underline 1px ${({theme}) => theme.colors.blue};
     font-weight: 400;
   }

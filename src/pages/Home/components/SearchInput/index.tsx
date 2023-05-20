@@ -1,18 +1,44 @@
 import { RegularText, TitleText } from "../../../../components/Typography";
 import { SearchInputContainer } from "./styles";
+import { z } from "zod";
+import { zodResolver  } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 
-function SearchInput(){
+interface SearchInputProps {
+  getPosts: (query?: string) => Promise<void>;
+  postsLength: number;
+
+}
+
+const searchFormSchema = z.object({
+  query: z.string()
+});
+
+type SearchFormInputs = z.infer<typeof searchFormSchema>;
+
+function SearchInput({ getPosts, postsLength } : SearchInputProps){
+  const { register, handleSubmit } = useForm<SearchFormInputs>({
+    resolver: zodResolver(searchFormSchema)
+  });
+
+  function handleSearchPosts(data: SearchFormInputs){
+    getPosts(data.query);
+  }
   return (
-    <SearchInputContainer>
-      <div>
+    <SearchInputContainer onSubmit={handleSubmit(handleSearchPosts)}>
+      <header>
         <TitleText as="h2" color="subtitle" size="s">
-        Publicações
+          Publicações
         </TitleText>
         <RegularText as="span" color="span" size="s">
-        6 publicações
+          {postsLength !== 1 ? `${postsLength} publicações` : `${postsLength} publicação`}
         </RegularText>
-      </div>
-      <input type="text" placeholder="Buscar conteúdo"/>
+      </header>
+      <input 
+        type="text" 
+        placeholder="Buscar conteúdo"
+        {...register("query")}
+      />
     </SearchInputContainer>
   );
 }

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const SearchInputContainer = styled.div`
+const SearchInputContainer = styled.form`
   display: flex;
   width: 100%;
 
@@ -10,7 +10,7 @@ const SearchInputContainer = styled.div`
   margin-bottom: 48px;
 
   gap: 0.75rem;
-  >div{
+  >header{
     display: flex;
     justify-content: space-between;
     align-items: center;
